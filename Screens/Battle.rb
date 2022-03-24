@@ -1,9 +1,13 @@
 require_relative "../Enemy/enemy.rb"
 
-def Battle(hero)
+def Battle_Init(hero)
     puts `clear`
-    enemy = WildCat.new()
-    hero.changeHP(-1 * enemy.getAtk)
-    puts "#{hero}'s LP = #{hero.getHP}"
-    gets
+    enemy_list = [WildCat, Slime, Donkey]
+    enemy = []
+
+    if hero.getLv() < 5
+        selector = rand 0..(enemy_list.size - 1)
+        enemy << enemy_list[selector].new()
+    end
+    puts enemy
 end

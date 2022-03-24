@@ -8,7 +8,6 @@ class Enemy < Entity
         @def = 3
         @mdf = 3
         @hp = 10
-        @lv = 1
     end
 end
 
@@ -17,6 +16,28 @@ class WildCat < Enemy
         super
         @mat = 1
         @mdf = 1
+        @hp = 15
         @nom = "Wild Cat"
+    end
+end
+
+class Slime < Enemy
+    def initialize()
+        super
+        @mat = 5
+        @mdf = 4
+        @nom = "Slime"
+    end
+end
+
+class Donkey < Enemy
+    def initialize()
+        super
+        @atk = 1
+        @mat = 1
+        @def = 1
+        @mdf = 1
+        @hp = 1
+        @nom = "Donkey"
     end
 end

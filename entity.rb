@@ -7,6 +7,7 @@ class Entity
         @mdf = 1
         @hp = 1
         @lv = 1
+        @lv = 1
     end
     def getDef
         return @def
@@ -40,6 +41,9 @@ class Entity
     end
     def changeHP(value)
         @hp = @hp + value
+    end
+    def getLv()
+        return @lv
     end
     def to_s
         return @nom
