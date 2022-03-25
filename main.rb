@@ -8,7 +8,7 @@ def main()
     hero = Hero.new("Jean")
     game.setHero(hero)
     puts "Choose your class #{hero} !"
-    JobMenu(game.getHero())
+     JobMenu(game.getHero())
     MainMenu(game)
 end
 

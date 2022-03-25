@@ -27,6 +27,18 @@ class Hero < Entity
         @job = test
     end
 
+    def gainXp(xp)
+        @xp += xp
+        if @xp >= @full_xp
+            left_xp = @full_xp - @xp
+            @lv += 1
+            puts "#{@nom} is now lv#{lv} !\n"
+            @full_xp = @lv * 10
+            gainXp(left_xp)
+        end
+        sleep(1)
+    end
+
     def Status
         puts "NAME : #{@nom} the #{@job}\n\n"
         puts "\t INFOS\n"
