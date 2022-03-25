@@ -16,7 +16,7 @@ class Priest < Random
     def initialize(actor)
         super
         actor.setMat(8)
-        actor.setmdf(6)
+        actor.setMdf(6)
         actor.setAtk(3)
     end
     def to_s
