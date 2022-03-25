@@ -30,14 +30,14 @@ class Slime < Enemy
     end
 end
 
-class Donkey < Enemy
+class GreatCat < Enemy
     def initialize()
         super
-        @atk = 1
+        @atk = 15
         @mat = 1
-        @def = 1
-        @mdf = 1
-        @hp = 1
+        @def = 6
+        @mdf = 4
+        @hp = 20
         @nom = "Donkey"
     end
 end
