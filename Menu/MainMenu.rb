@@ -3,20 +3,20 @@ require_relative "../hero"
 require_relative "../Screens/Status"
 require_relative "../Screens/Battle"
 
-def MainMenu(hero)
+def MainMenu(game)
     user = ""
     puts("\nMain Menu\n\n1 Battle\n2 Iventory\n3 Status\n4 Quit\nEnter to validate option")
     while 1
         case(user)
         when 1
-            Battle_Init(hero)
+            Battle_Init(game.getHero())
         when 2
             puts `clear`
             puts "Option #{user} \n"
             sleep(2)
         when 3
             puts `clear`
-            Status(hero)
+            Status(game.getHero())
         when 4
             puts `clear`
             puts "Thanks for playing the game !"

@@ -2,10 +2,9 @@ require_relative "../hero"
 require_relative "../Job/job"
 
 def JobMenu(h)
-    test = true
     user = ""
     puts("1 Warrior\n2 Mage\n3 Priest\nEnter to validate option")
-    while test
+    while 1
         case user
         when 1
             puts `clear`
@@ -23,7 +22,11 @@ def JobMenu(h)
             h.SetClass(Priest.new(h))
             return
         else
+            puts `clear`
             puts "You must choose a class #{h} !"
+            sleep(1)
+            puts("1 Warrior\n2 Mage\n3 Priest\nEnter to validate option")
+
         end
         user = gets.chomp.to_i
     end
