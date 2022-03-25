@@ -9,7 +9,7 @@ def MainMenu(game)
     while 1
         case(user)
         when 1
-            Battle_Init(game.getHero())
+            Battle_Init(game)
         when 2
             puts `clear`
             puts "Option #{user} \n"

@@ -2,23 +2,19 @@ require_relative "../hero"
 require_relative "../Enemy/enemy.rb"
 require_relative "../Actions/attack.rb"
 
-def BattleMenu(hero, enemy)
+def BattleMenu(game)
     puts `clear`
     puts("\nBattle Menu\n\n1 Attack\n2 Defense\n3 Inventory\n4 Flee\nEnter to validate option")
     user = gets.chomp.to_i
     while 1
         case(user)
         when 1
-            enemy = attack(hero, enemy)
-            sleep(1)
-            if enemy.size() == 0
+            game.getEnemy()[0] = attack(game.getHero(), game.getEnemy()[0])
+            if game.getEnemy().size() == 0
                 break
             end
-            # if (t == false)
-            #     break
-            # end
+            sleep(3)
             puts `clear`
-            puts enemy[0].getHP()
             puts("\nBattle Menu\n\n1 Attack\n2 Defense\n3 Inventory\n4 Flee\nEnter to validate option")
         when 2
             puts "2"
