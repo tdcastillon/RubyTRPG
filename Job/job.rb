@@ -25,6 +25,7 @@ class Priest < Random
         actor.setMdf 6
         actor.setAtk 3
         actor.setMp 15
+        @skills = [Pray.new]
     end
     def to_s
         "Priest"
