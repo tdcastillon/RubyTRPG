@@ -1,7 +1,7 @@
 require_relative "../entity.rb"
 
 class Enemy < Entity
-    def initialize()
+    def initialize
         super
         @atk = 3
         @mat = 3
@@ -9,14 +9,16 @@ class Enemy < Entity
         @mdf = 3
         @hp = 10
     end
-    def getXpToWin()
+    def GetWin
         return @xp_to_win
     end
 end
 
 class WildCat < Enemy
-    def initialize()
+    def initialize
         super
+        @atk = 5
+        @def = 4
         @mat = 1
         @mdf = 1
         @hp = 15
@@ -26,24 +28,26 @@ class WildCat < Enemy
 end
 
 class Slime < Enemy
-    def initialize()
+    def initialize
         super
         @mat = 5
         @mdf = 4
+        @def = 3
+        @hp = 12
         @nom = "Slime"
         @xp_to_win = 3
     end
 end
 
 class GreatCat < Enemy
-    def initialize()
+    def initialize
         super
-        @atk = 15
+        @atk = 7
         @mat = 1
         @def = 6
         @mdf = 4
         @hp = 20
         @xp_to_win = 8
-        @nom = "Donkey"
+        @nom = "Great Cat"
     end
 end
