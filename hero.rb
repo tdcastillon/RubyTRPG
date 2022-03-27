@@ -14,14 +14,14 @@ class Hero < Entity
     end
 
     def to_s
-        return @nom
+        @nom
     end
 
     def GetNom
-        return @nom
+        @nom
     end
     def GetClass
-        return @job
+        @job
     end
     def SetClass(test)
         @job = test

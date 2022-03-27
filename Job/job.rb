@@ -1,49 +1,59 @@
 require_relative "../hero"
+require_relative "../Actions/Skills/skill"
 
 class Random
     def initialize(actor)
-        actor.setAtk(4)
-        actor.setMat(4)
-        actor.setMdf(4)
-        actor.setDef(4)
-        actor.setHp(15)
+        actor.setAtk 4
+        actor.setMat 4
+        actor.setMdf 4
+        actor.setDef 4
+        actor.setHp 15
+        actor.setMp 6
+        @skills = []
+    end
+    def getSkills
+        @skills
     end
 end
 
-# Various jobs avalaible
+# Various jobs available
 
 class Priest < Random
     def initialize(actor)
         super
-        actor.setMat(8)
-        actor.setMdf(6)
-        actor.setAtk(3)
+        actor.setMat 8
+        actor.setMdf 6
+        actor.setAtk 3
+        actor.setMp 15
     end
     def to_s
-        return "Priest"
+        "Priest"
     end
 end
 
 class Warrior < Random
     def initialize(actor)
         super
-        actor.setAtk(10)
-        actor.setDef(10)
-        actor.setHp(25)
+        actor.setAtk 7
+        actor.setDef 7
+        actor.setHp 25
+        actor.setMp 3
     end
     def to_s
-        return "Warrior"
+        "Warrior"
     end
 end
 
 class Mage < Random
     def initialize(actor)
         super
-        actor.setMat(10)
-        actor.setMdf(10)
-        actor.setHp(15)
+        actor.setMat 10
+        actor.setMdf 10
+        actor.setHp 15
+        actor.setMp 15
+        @skills = [FireBall.new]
     end
     def to_s
-        return "Mage"
+        "Mage"
     end
 end

@@ -1,3 +1,4 @@
+#noinspection ALL
 class Entity
     def initialize(nom="")
 
@@ -6,34 +7,35 @@ class Entity
         @def = 1
         @mdf = 1
         @hp = 1
+        @mp = 1
         @lv = 1
     end
     def getDef
-        return @def
+        @def
     end
     def setDef(block)
         @def = block
     end
     def getMdf
-        return @mdf
+        @mdf
     end
     def setMdf(mdf)
         @mdf = mdf
     end
     def getAtk
-        return @atk
+        @atk
     end
     def setAtk(atk)
         @atk = atk
     end
     def getMat
-        return @mat
+        @mat
     end
     def setMat(mat)
         @mat = mat
     end
     def getHP
-        return @hp
+        @hp
     end
     def setHp(hp)
         @hp = hp
@@ -42,9 +44,15 @@ class Entity
         @hp = @hp + value
     end
     def getLevel
-        return @lv
+        @lv
+    end
+    def setMp(mp)
+        @mp = mp
+    end
+    def getMp
+        @mp
     end
     def to_s
-        return @nom
+        @nom
     end
 end
