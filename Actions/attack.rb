@@ -1,3 +1,4 @@
+#noinspection ALL
 require_relative "../hero"
 require_relative "../Enemy/enemy.rb"
 
