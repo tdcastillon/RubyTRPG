@@ -26,6 +26,7 @@ class Priest < Random
         actor.setAtk 3
         actor.setDef 8
         actor.setMp 15
+        actor.setSpeed 9
         @skills = [Pray.new]
     end
     def to_s
@@ -40,6 +41,7 @@ class Warrior < Random
         actor.setDef 7
         actor.setHp 25
         actor.setMp 3
+        actor.setSpeed 3
     end
     def to_s
         "Warrior"
@@ -53,6 +55,7 @@ class Mage < Random
         actor.setMdf 10
         actor.setHp 15
         actor.setMp 15
+        actor.setSpeed 6
         @skills = [FireBall.new]
     end
     def to_s

@@ -5,8 +5,10 @@ require_relative "../Actions/attack.rb"
 
 def enemy_turn(game)
     game.getEnemy.each { |en|
-        attack(en, game.getHero)
-        if game.getHero.getHP <= 0
+        x = rand 1 .. game.getHeroes.size
+        x = x - 1
+        attack(en, game.getHeroes[x])
+        if game.getHeroes[0].getHP <= 0
             puts `clear`
             puts "Game Over !"
             sleep(3)

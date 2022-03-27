@@ -23,7 +23,7 @@ def enemy_selector(enemy)
     
 end
 
-def check_life(enemy, hero)
+def check_life(enemy, battlers)
     index = 0
     hero_xp = 0
     while index != enemy.size
@@ -31,6 +31,7 @@ def check_life(enemy, hero)
             puts "#{enemy[index]} is dead"
             hero_xp += enemy[index].GetWin
             enemy.delete_at(index)
+            sleep(2)
         else
             index += 1
         end

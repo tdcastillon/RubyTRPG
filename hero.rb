@@ -3,13 +3,14 @@ require_relative "Job/job"
 require_relative "entity"
 
 class Hero < Entity
-    def initialize(nom)
+    def initialize( nom = "Hero")
         super
         @nom = nom
         @job = Random.new(self)
         @inventory = []
         @fight_number = 0
         @xp = 0
+        @entity = "hero"
         @full_xp = @lv * 10
     end
 

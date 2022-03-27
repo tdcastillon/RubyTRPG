@@ -12,6 +12,8 @@ class Entity
         @max_mp = @mp
         @lv = 1
         @xp_rate = 1
+        @speed = 1
+        @entity = ""
     end
     def getDef
         @def
@@ -74,6 +76,15 @@ class Entity
         @mat = @mat * @xp_rate * @level
         @max_hp = @max_hp * @xp_rate * @level
         @max_mp = @max_mp * @xp_rate * @level
+    end
+    def getSpeed
+        @speed
+    end
+    def setSpeed(speed)
+        @speed = speed
+    end
+    def getEntity
+        @entity
     end
     def to_s
         @nom

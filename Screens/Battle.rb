@@ -8,12 +8,11 @@ def battle_init(game)
     enemy_list = [WildCat, Slime, GreatCat]
     enemy = []
 
-    if game.getHero.getLevel < 5
+    if game.getAverageLv < 5
         selector = rand 0..(enemy_list.size - 1)
-        enemy << enemy_list[selector].new
-        puts "#{enemy[0]} appears !"
-        sleep(1)
+        game.addEnemy(enemy_list[selector].new)
+        puts "#{game.getEnemy[0]} appears !"
+        sleep(2 )
     end
-    game.setEnemy(enemy)
     battle_menu game
 end

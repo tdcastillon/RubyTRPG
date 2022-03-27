@@ -16,42 +16,36 @@ def battle_menu(game)
                 puts `clear`
                 puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             else
-                attack(game.getHero, game.getEnemy[enemy_chosen])
-                xp = check_life(game.getEnemy, game.getHero)
+                attack(game.getHeroes[0], game.getEnemy[enemy_chosen])
+                xp = check_life(game.getEnemy, game.getHeroes[0])
                 if xp != 0
-                    puts "#{game.getHero} has gained #{xp} xp!\n"
+                    puts "#{game.getHeroes[0]} has gained #{xp} xp!\n"
                 end
-                game.getHero.gainXp(xp)
+                game.getHeroes[0].gainXp(xp)
                 if game.getEnemy.size == 0
                     puts "You win !!\n"
                     break
                 end
-                puts "Enemy Turn !"
                 enemy_turn(game)
-                sleep(3)
+                sleep 2
                 puts `clear`
                 puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             end
         when 2
-            valid = SkillMenu(game.getHero, game.getHero.GetClass.getSkills, game.getEnemy)
+            valid = SkillMenu(game.getHeroes[0], game.getHeroes[0].GetClass.getSkills, game.getEnemy)
             if !valid
                 puts `clear`
                 puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             else
-                xp = check_life(game.getEnemy, game.getHero)
+                xp = check_life(game.getEnemy, game.getHeroes[0])
                 if xp != 0
-                    puts "#{game.getHero} has gained #{xp} xp!\n"
+                    puts "#{game.getHeroes[0]} has gained #{xp} xp!\n"
                 end
-                game.getHero.gainXp(xp)
+                game.getHeroes[0].gainXp(xp)
                 if game.getEnemy.size == 0
                     puts "You win !!\n"
                     break
                 end
-                puts "Enemy Turn !"
-                enemy_turn(game)
-                sleep(3)
-                puts `clear`
-                puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             end
         when 3
             puts "3"
