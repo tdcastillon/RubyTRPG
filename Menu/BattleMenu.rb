@@ -12,20 +12,26 @@ def battle_menu(game)
         case(user)
         when 1
             enemy_chosen = enemy_selector(game.getEnemy)
-            attack(game.getHero, game.getEnemy[enemy_chosen])
-            xp = check_life(game.getEnemy, game.getHero)
-            if xp != 0
-                puts "#{game.getHero} has gained #{xp} xp!\n"
+            if (enemy_chosen == -1)
+                puts `clear`
+                puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
+            else
+                attack(game.getHero, game.getEnemy[enemy_chosen])
+                xp = check_life(game.getEnemy, game.getHero)
+                if xp != 0
+                    puts "#{game.getHero} has gained #{xp} xp!\n"
+                end
+                game.getHero.gainXp(xp)
+                if game.getEnemy.size == 0
+                    puts "You win !!\n"
+                    break
+                end
+                puts "Enemy Turn !"
+                enemy_turn(game)
+                sleep(3)
+                puts `clear`
+                puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             end
-            game.getHero.gainXp(xp)
-            if game.getEnemy.size == 0
-                puts "You win !!\n"
-                break
-            end
-            enemy_turn(game)
-            sleep(3)
-            puts `clear`
-            puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
         when 2
             valid = SkillMenu(game.getHero, game.getHero.GetClass.getSkills, game.getEnemy)
             if !valid
@@ -41,6 +47,7 @@ def battle_menu(game)
                     puts "You win !!\n"
                     break
                 end
+                puts "Enemy Turn !"
                 enemy_turn(game)
                 sleep(3)
                 puts `clear`
