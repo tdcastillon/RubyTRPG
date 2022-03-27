@@ -6,6 +6,8 @@ def enemy_selector(enemy)
         case(user)
         when 1..enemy.size
             return (user - 1)
+        when enemy.size + 1
+            return -1;
         else
             puts `clear`
             x = 1
@@ -13,6 +15,7 @@ def enemy_selector(enemy)
                 puts "#{x}. #{a}\n"
                 x += 1
             }
+            puts "#{x}. Cancel"
             puts "Press the number of the enemy you want to attack !\n"
         end
         user = gets.chomp.to_i
