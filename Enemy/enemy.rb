@@ -8,6 +8,7 @@ class Enemy < Entity
         @def = 3
         @mdf = 3
         @hp = 10
+        @mp = 5
     end
     def GetWin
         return @xp_to_win
@@ -22,6 +23,7 @@ class WildCat < Enemy
         @mat = 1
         @mdf = 1
         @hp = 15
+        @mp = 3
         @xp_to_win = 4
         @nom = "Wild Cat"
     end
@@ -34,6 +36,7 @@ class Slime < Enemy
         @mdf = 4
         @def = 3
         @hp = 12
+        @mp = 10
         @nom = "Slime"
         @xp_to_win = 3
     end
