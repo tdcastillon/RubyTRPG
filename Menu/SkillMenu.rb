@@ -36,8 +36,10 @@ def descriptionMenu(chosen_skill, hero, enemies)
   while 1
     case(user_input)
     when 1
-      enemy_chosen = enemy_selector(enemies)
-      chosen_skill.use(hero, enemies[enemy_chosen])
+      value = launch_skill(chosen_skill, hero, enemies)
+      if value == -1
+        return
+      end
       return true
     when 2
       return
@@ -48,5 +50,21 @@ def descriptionMenu(chosen_skill, hero, enemies)
     end
     user_input = gets.chomp.to_i
   end
+end
 
+def launch_skill(chosen_skill, hero, enemies)
+  case(chosen_skill.GetTargetPanel)
+  when 0
+    return -1
+  when 1
+    enemy_chosen = enemy_selector(enemies)
+    if enemy_chosen == -1
+      return -1
+    end
+    chosen_skill.use(hero, enemies[enemy_chosen])
+  when 2
+    return -1
+  when 3
+    return -1
+  end
 end
