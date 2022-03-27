@@ -90,5 +90,6 @@ class Pray < HealSkill
     @mat_mul = 1
     @element = "light"
     @description = "The user prays the Divinity to heal his wounds"
+    @nom = "Pray"
   end
 end

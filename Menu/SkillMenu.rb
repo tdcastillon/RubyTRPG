@@ -63,7 +63,7 @@ def launch_skill(chosen_skill, hero, enemies)
     end
     chosen_skill.use(hero, enemies[enemy_chosen])
   when 2
-    return -1
+    chosen_skill.use(hero, hero)
   when 3
     return -1
   end
