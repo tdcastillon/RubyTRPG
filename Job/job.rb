@@ -24,6 +24,7 @@ class Priest < Random
         actor.setMat 8
         actor.setMdf 6
         actor.setAtk 3
+        actor.setDef 8
         actor.setMp 15
         @skills = [Pray.new]
     end
