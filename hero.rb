@@ -32,8 +32,9 @@ class Hero < Entity
         if @xp >= @full_xp
             left_xp = @full_xp - @xp
             @lv += 1
-            puts "#{@nom} is now lv#{lv} !\n"
+            puts "#{@nom} is now lv#{@lv} !\n"
             @full_xp = @lv * 10
+            @xp = 0
             gainXp(left_xp)
         end
         sleep(1)

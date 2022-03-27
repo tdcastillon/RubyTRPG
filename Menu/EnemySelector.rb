@@ -9,10 +9,10 @@ def enemy_selector(enemy)
         else
             puts `clear`
             x = 1
-            for a in enemy do
+            enemy.each { |a|
                 puts "#{x}. #{a}\n"
                 x += 1
-            end
+            }
             puts "Press the number of the enemy you want to attack !\n"
         end
         user = gets.chomp.to_i
@@ -20,13 +20,13 @@ def enemy_selector(enemy)
     
 end
 
-def checkEnemyLife(enemy)
+def check_life(enemy, hero)
     index = 0
     hero_xp = 0
-    while index != enemy.size()
-        if (enemy[index].getHP() <= 0)
+    while index != enemy.size
+        if enemy[index].getHP <= 0
             puts "#{enemy[index]} is dead"
-            hero_xp += enemy[index].getXpToWin()
+            hero_xp += enemy[index].GetWin
             enemy.delete_at(index)
         else
             index += 1

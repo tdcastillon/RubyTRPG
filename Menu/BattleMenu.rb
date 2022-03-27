@@ -3,28 +3,33 @@ require_relative "../Enemy/enemy.rb"
 require_relative "../Actions/attack.rb"
 
 require_relative "EnemySelector.rb"
+require_relative "../Screens/enemy.rb"
 
-def BattleMenu(game)
+def battle_menu(game)
     user = ""
     while 1
         case(user)
         when 1
-            enemy_chosen = enemy_selector(game.getEnemy())
-            game.getEnemy()[enemy_chosen] = attack(game.getHero(), game.getEnemy()[enemy_chosen])
-            xp = checkEnemyLife(game.getEnemy())
-            if (xp != 0)
-                puts "#{game.getHero()} has gained #{xp} xp!\n"
-            game.getHero().gainXp(xp)
-            if game.getEnemy().size() == 0
+            enemy_chosen = enemy_selector(game.getEnemy)
+            attack(game.getHero, game.getEnemy[enemy_chosen])
+            xp = check_life(game.getEnemy, game.getHero)
+            if xp != 0
+                puts "#{game.getHero} has gained #{xp} xp!\n"
+            end
+            game.getHero.gainXp(xp)
+            if game.getEnemy.size == 0
                 puts "You win !!\n"
                 break
             end
+            enemy_turn(game)
             sleep(3)
             puts `clear`
-            puts("\nBattle Menu\n\n1 Attack\n2 Inventory\n3 Flee\nEnter to validate option")
+            puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
         when 2
             puts "2"
         when 3
+            puts "3"
+        when 4
             puts "You flee the battle"
             break
         else

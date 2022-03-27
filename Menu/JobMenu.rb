@@ -1,7 +1,7 @@
 require_relative "../hero"
 require_relative "../Job/job"
 
-def JobMenu(h)
+def job_menu(h)
     user = ""
     puts("1 Warrior\n2 Mage\n3 Priest\nEnter to validate option")
     while 1
