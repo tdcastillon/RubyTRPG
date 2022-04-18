@@ -5,7 +5,6 @@ require_relative "../Screens/Battle"
 
 def main_menu(game)
     user = ""
-    puts("\nMain Menu\n\n1 Battle\n2 Inventory\n3 Status\n4 Quit\nEnter to validate option")
     while 1
         case(user)
         when 1
@@ -16,7 +15,7 @@ def main_menu(game)
             sleep(2)
         when 3
             puts `clear`
-            Status game.getHero
+            PreStatus game.getHeroes
         when 4
             puts `clear`
             puts "Thanks for playing the game !"

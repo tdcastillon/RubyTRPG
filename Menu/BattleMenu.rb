@@ -6,7 +6,26 @@ require_relative "EnemySelector.rb"
 require_relative "SkillMenu.rb"
 require_relative "../Screens/enemy.rb"
 
-def battle_menu(game)
+def player_turn(game)
+    game.getHeroes.each do |a|
+        battle_menu(game, a)
+    end
+end
+
+def after_skill(game, hero)
+    xp = check_life(game.getEnemy, hero)
+    if xp != 0
+        puts "#{hero} has gained #{xp} xp!\n"
+    end
+    hero.gainXp(xp)
+    if game.getEnemy.size == 0
+        puts "You win !!\n"
+        return -1
+    end
+    enemy_turn(game)
+end
+
+def battle_menu(game, hero)
     user = ""
     while 1
         case(user)
@@ -14,38 +33,32 @@ def battle_menu(game)
             enemy_chosen = enemy_selector(game.getEnemy)
             if (enemy_chosen == -1)
                 puts `clear`
+                puts "This is the turn of #{hero}\n"
                 puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             else
-                attack(game.getHeroes[0], game.getEnemy[enemy_chosen])
-                xp = check_life(game.getEnemy, game.getHeroes[0])
-                if xp != 0
-                    puts "#{game.getHeroes[0]} has gained #{xp} xp!\n"
-                end
-                game.getHeroes[0].gainXp(xp)
-                if game.getEnemy.size == 0
-                    puts "You win !!\n"
+                attack(hero, game.getEnemy[enemy_chosen])
+                if (after_skill(game, hero) == -1)
                     break
                 end
-                enemy_turn(game)
                 sleep 2
                 puts `clear`
+                puts "This is the turn of #{hero}\n"
                 puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             end
         when 2
-            valid = SkillMenu(game.getHeroes[0], game.getHeroes[0].GetClass.getSkills, game.getEnemy)
+            valid = SkillMenu(hero, hero.GetClass.getSkills, game.getEnemy)
             if !valid
                 puts `clear`
+                puts "This is the turn of #{hero}\n"
                 puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             else
-                xp = check_life(game.getEnemy, game.getHeroes[0])
-                if xp != 0
-                    puts "#{game.getHeroes[0]} has gained #{xp} xp!\n"
-                end
-                game.getHeroes[0].gainXp(xp)
-                if game.getEnemy.size == 0
-                    puts "You win !!\n"
+                if (after_skill(game, hero) == -1)
                     break
                 end
+                sleep 2
+                puts `clear`
+                puts "This is the turn of #{hero}\n"
+                puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             end
         when 3
             puts "3"
@@ -54,6 +67,7 @@ def battle_menu(game)
             break
         else
             puts `clear`
+            puts "This is the turn of #{hero}\n"
             puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             sleep(1)
         end

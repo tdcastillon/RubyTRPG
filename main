@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require_relative "game"
 require_relative "hero"
 require_relative "Menu/JobMenu"

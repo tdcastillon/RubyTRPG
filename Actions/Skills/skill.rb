@@ -47,7 +47,8 @@ class DamageSkill < Skill
     dmg = dmg.round()
     dmg = (dmg > 0) ? 0 : dmg
     target.changeHP(dmg)
-    puts "#{user} inflicts #{dmg} to the #{target}. #{target} has now #{target.getHP} PV!"
+    hp_target = (target.getHP <= 0) ? 0 : target.getHP
+    puts "#{user} inflicts #{dmg} to the #{target}. #{target} has now #{hp_target} PV!"
   end
 end
 
@@ -62,34 +63,5 @@ class HealSkill < Skill
     heal_power = heal_power.round()
     target.changeHP(heal_power)
     puts "#{user} has healed #{target}. #{target} has regained #{heal_power} HP and now has #{target.getHP} PV!"
-  end
-end
-
-
-
-class FireBall < DamageSkill
-  def initialize
-    super
-    @nom = "Fire Ball"
-    @mp_consumption = 5
-    @element = "fire"
-    @description = "The user launch a fire ball !"
-    @mat_mul = 1.5
-    @mdf_mul = 0.75
-    @target_panel = 1
-  end
-  def use(user, target)
-    super
-  end
-end
-
-class Pray < HealSkill
-  def initialize
-    super
-    @target_panel = 2
-    @mat_mul = 1
-    @element = "light"
-    @description = "The user prays the Divinity to heal his wounds"
-    @nom = "Pray"
   end
 end

@@ -14,5 +14,5 @@ def battle_init(game)
         puts "#{game.getEnemy[0]} appears !"
         sleep(2 )
     end
-    battle_menu game
+    player_turn game
 end

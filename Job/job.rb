@@ -1,5 +1,7 @@
 require_relative "../hero"
-require_relative "../Actions/Skills/skill"
+
+require_relative "../Actions/Skills/Damage"
+require_relative "../Actions/Skills/HealSkill"
 
 class Random
     def initialize(actor)

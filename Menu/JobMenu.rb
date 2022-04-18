@@ -3,7 +3,6 @@ require_relative "../Job/job"
 
 def job_menu(h)
     user = ""
-    puts("1 Warrior\n2 Mage\n3 Priest\nEnter to validate option")
     while 1
         case user
         when 1
