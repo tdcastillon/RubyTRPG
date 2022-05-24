@@ -46,6 +46,9 @@ class Entity
     def getHP
         @hp
     end
+    def setMaxHP(hp)
+        @max_hp = hp
+    end
     def getMaxHP
         @max_hp
     end
@@ -63,8 +66,16 @@ class Entity
     def setMp(mp)
         @mp = mp
     end
+    def setMaxMp(mp)
+        @max_mp = mp
+    end
     def getMp
         @mp
+    end
+    def changeMp(value)
+        @mp = @mp + value
+        @mp = (@mp > @max_mp) ? @max_mp : @mp
+        @mp = (@mp < 0) ? 0 : @mp
     end
     def setXprate(xp_rate)
         @xp_rate = xp_rate

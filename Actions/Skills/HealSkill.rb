@@ -8,5 +8,6 @@ class Pray < HealSkill
       @element = "light"
       @description = "The user prays the Divinity to heal his wounds"
       @nom = "Pray"
+      @mp_consumption = 3
     end
   end

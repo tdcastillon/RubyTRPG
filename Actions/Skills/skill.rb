@@ -44,6 +44,7 @@ class DamageSkill < Skill
   def use(user, target)
     puts "#{user} use #{@nom} on #{target}!"
     dmg = ((user.getMat * @mat_mul) - (target.getMdf * @mdf_mul)) * -1
+    user.changeMp(-1 * @mp_consumption)
     dmg = dmg.round()
     dmg = (dmg > 0) ? 0 : dmg
     target.changeHP(dmg)
@@ -59,6 +60,7 @@ class HealSkill < Skill
   end
   def use(user, target)
     puts "#{user} use #{@nom} on #{target}!"
+    user.changeMp(-1 * @mp_consumption)
     heal_power = user.getMat * @mat_mul
     heal_power = heal_power.round()
     target.changeHP(heal_power)
