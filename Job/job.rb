@@ -10,7 +10,9 @@ class Random
         actor.setMdf 4
         actor.setDef 4
         actor.setHp 15
+        actor.setMaxHP(15)
         actor.setMp 6
+        actor.setMaxMp(6)
         @skills = []
     end
     def getSkills
@@ -28,6 +30,7 @@ class Priest < Random
         actor.setAtk 3
         actor.setDef 8
         actor.setMp 15
+        actor.setMaxMp(15)
         actor.setSpeed 9
         @skills = [Pray.new]
     end
@@ -42,6 +45,7 @@ class Warrior < Random
         actor.setAtk 7
         actor.setDef 7
         actor.setHp 25
+        actor.setMaxHP(25)
         actor.setMp 3
         actor.setSpeed 3
     end
@@ -56,7 +60,9 @@ class Mage < Random
         actor.setMat 10
         actor.setMdf 10
         actor.setHp 15
+        actor.setMaxHP(15)
         actor.setMp 15
+        actor.setMaxMp(15)
         actor.setSpeed 6
         @skills = [FireBall.new]
     end
