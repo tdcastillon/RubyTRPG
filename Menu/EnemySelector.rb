@@ -23,7 +23,7 @@ def enemy_selector(enemy)
     
 end
 
-def check_life(enemy, battlers)
+def check_life(enemy)
     index = 0
     hero_xp = 0
     while index != enemy.size
@@ -37,4 +37,13 @@ def check_life(enemy, battlers)
         end
     end
     return hero_xp
+end
+
+def upgrade_lv(enemy, level)
+    index = 0
+    while index != enemy.size
+        enemy[index].LevelUp level
+        index += 1
+    end
+    sleep(4)
 end

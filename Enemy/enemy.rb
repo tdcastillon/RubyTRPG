@@ -9,13 +9,30 @@ class Enemy < Entity
         @mdf = 3
         @hp = 10
         @mp = 5
+        @max_hp = 10
+        @max_mp = 5
         @entity = "enemy"
+        @lv = 1
+        @xp_rate = 1
     end
     def GetWin
         return @xp_to_win
     end
-    def to
+    def to_s
         @nom
+    end
+    def LevelUp(level)
+        print(level)
+        @lv = @lv * level
+        @hp += @lv
+        @mp += @lv
+        @max_hp = @hp
+        @max_mp = @mp
+        @atk *= @lv
+        @def *= @lv
+        @mdf *= @lv
+        @mat *= @lv
+        @xp_to_win *= @lv
     end
 end
 
@@ -33,6 +50,7 @@ class WildCat < Enemy
         @xp_to_win = 4
         @speed = 5
         @nom = "Wild Cat"
+        @xp_rate = 1.3
     end
 end
 
@@ -49,7 +67,9 @@ class Slime < Enemy
         @nom = "Slime"
         @speed = 7
         @xp_to_win = 3
+        @xp_rate = 1.3
     end
+
 end
 
 class GreatCat < Enemy
@@ -66,5 +86,6 @@ class GreatCat < Enemy
         @xp_to_win = 8
         @speed = 1
         @nom = "Great Cat"
+        @xp_rate = 1.3
     end
 end
