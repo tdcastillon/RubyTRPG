@@ -24,6 +24,9 @@ class Hero < Entity
     def GetClass
         @job
     end
+    def GetLv
+        @lv
+    end
     def SetClass(test)
         @job = test
     end
@@ -48,5 +51,9 @@ class Hero < Entity
         puts "You have done #{@fight_number} combat(s) \n\n"
         puts "\t STATS\n"
         puts "HP : #{@hp} / #{@max_hp}\nMP : #{@mp} / #{@max_mp} \nATK : #{@atk}\nMAT : #{@mat}\nDEF : #{@def}\nMDF : #{@mdf}"
+    end
+
+    def finish_battle
+        @fight_number += 1
     end
 end

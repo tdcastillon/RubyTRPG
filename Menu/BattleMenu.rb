@@ -13,9 +13,10 @@ def player_turn(game)
 end
 
 def after_skill(game, hero)
-    xp = check_life(game.getEnemy, hero)
+    xp = check_life(game.getEnemy)
     if xp != 0
         puts "#{hero} has gained #{xp} xp!\n"
+        hero.finish_battle()
     end
     hero.gainXp(xp)
     if game.getEnemy.size == 0
@@ -31,13 +32,13 @@ def battle_menu(game, hero)
         case(user)
         when 1
             enemy_chosen = enemy_selector(game.getEnemy)
-            if (enemy_chosen == -1)
+            if enemy_chosen == -1
                 puts `clear`
                 puts "This is the turn of #{hero}\n"
                 puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             else
                 attack(hero, game.getEnemy[enemy_chosen])
-                if (after_skill(game, hero) == -1)
+                if after_skill(game, hero) == -1
                     break
                 end
                 sleep 2
@@ -52,7 +53,7 @@ def battle_menu(game, hero)
                 puts "This is the turn of #{hero}\n"
                 puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             else
-                if (after_skill(game, hero) == -1)
+                if after_skill(game, hero) == -1
                     break
                 end
                 sleep 2
@@ -71,6 +72,6 @@ def battle_menu(game, hero)
             puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             sleep(1)
         end
-        user = gets.chomp.to_i 
+        user = gets.chomp.to_i
     end
 end
