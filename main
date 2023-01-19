@@ -5,15 +5,32 @@ require_relative "hero"
 require_relative "Menu/JobMenu"
 require_relative "Menu/MainMenu"
 
+### import all items ###
+
+require_relative "Items/health/health"
+
 def main
     game = Game.new
-    heroes = game.getHeroes
-    puts "Enter your name, Hero\n"
-    user_name = gets.chomp.to_s
-    hero = (user_name != "") ? Hero.new(user_name) : Hero.new
+    puts "Welcome to the game !"
+    puts "What is your name ?"
+    
+    ### Init Main Hero ###
+    name = gets.chomp
+    hero = Hero.new(name)
     game.addHero(hero)
-    job_menu game.getHeroes[0]
-    main_menu game
+
+    job_menu(hero)
+
+    ### End Init Main Hero ###
+
+    ### Test Part ###
+
+    game.addInventory(Apple.new)
+    game.addInventory(CrackingRock.new)
+
+    ### End Test Part ###
+
+    main_menu(game)
 end
 
 if __FILE__ == $0
