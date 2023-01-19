@@ -1,4 +1,5 @@
 require_relative "../Enemy/enemy.rb"
+require_relative "../clear_screen"
 
 def enemy_selector(enemy)
     user = ""
@@ -9,7 +10,7 @@ def enemy_selector(enemy)
         when enemy.size + 1
             return -1;
         else
-            puts `clear`
+            clear_screen
             x = 1
             enemy.each { |a|
                 puts "#{x}. #{a}\n"

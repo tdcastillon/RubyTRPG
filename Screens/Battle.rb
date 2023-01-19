@@ -4,7 +4,7 @@ require_relative "../Menu/EnemySelector.rb"
 require_relative "../Menu/BattleMenu.rb"
 
 def battle_init(game)
-    puts `clear`
+    clear_screen
     enemy_list = [WildCat, Slime, GreatCat]
     max_lv_to_battle = game.getHeroes[0].GetLv() + 1
     rand_lv_enemy = rand 1..max_lv_to_battle

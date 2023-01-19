@@ -15,7 +15,7 @@ def PreStatus(heroes)
         when heroes.size + 1
             return
         else
-            puts `clear`
+            clear_screen
             x = 1
             heroes.each do |a|
                 puts "#{x}. #{a}\n"

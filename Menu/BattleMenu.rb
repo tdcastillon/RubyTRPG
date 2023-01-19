@@ -1,6 +1,7 @@
 require_relative "../hero"
 require_relative "../Enemy/enemy.rb"
 require_relative "../Actions/attack.rb"
+require_relative "../clear_screen"
 
 require_relative "EnemySelector.rb"
 require_relative "SkillMenu.rb"
@@ -33,7 +34,7 @@ def battle_menu(game, hero)
         when 1
             enemy_chosen = enemy_selector(game.getEnemy)
             if enemy_chosen == -1
-                puts `clear`
+                clear_screen
                 puts "This is the turn of #{hero}\n"
                 puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             else
@@ -42,14 +43,14 @@ def battle_menu(game, hero)
                     break
                 end
                 sleep 2
-                puts `clear`
+                clear_screen
                 puts "This is the turn of #{hero}\n"
                 puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             end
         when 2
             valid = SkillMenu(hero, hero.GetClass.getSkills, game.getEnemy)
             if !valid
-                puts `clear`
+                clear_screen
                 puts "This is the turn of #{hero}\n"
                 puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             else
@@ -57,7 +58,7 @@ def battle_menu(game, hero)
                     break
                 end
                 sleep 2
-                puts `clear`
+                clear_screen
                 puts "This is the turn of #{hero}\n"
                 puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             end
@@ -67,7 +68,7 @@ def battle_menu(game, hero)
             puts "You flee the battle"
             break
         else
-            puts `clear`
+            clear_screen
             puts "This is the turn of #{hero}\n"
             puts("\nBattle Menu\n\n1 Attack\n2 Skills\n3 Inventory\n4 Flee\nEnter to validate option")
             sleep(1)

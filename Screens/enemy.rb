@@ -9,7 +9,7 @@ def enemy_turn(game)
         x = x - 1
         attack(en, game.getHeroes[x])
         if game.getHeroes[0].getHP <= 0
-            puts `clear`
+            clear_screen
             puts "Game Over !"
             sleep(3)
             exit 0

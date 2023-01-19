@@ -1,4 +1,5 @@
 require_relative 'EnemySelector.rb'
+require_relative "../clear_screen"
 
 def SkillMenu(hero, skills, enemies)
   user_input = ""
@@ -12,7 +13,7 @@ def SkillMenu(hero, skills, enemies)
     when skills.size + 1
       return false
     else
-      puts `clear`
+      clear_screen
       x = 1
       skills.each do |a|
         puts "#{x}. #{a}\n"
@@ -44,7 +45,7 @@ def descriptionMenu(chosen_skill, hero, enemies)
     when 2
       return
     else
-      puts `clear`
+      clear_screen
       puts chosen_skill.getDescription
       puts "1. Use\n2. Return"
     end
